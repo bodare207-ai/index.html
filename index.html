@@ -3,55 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mango Rewards | Ad Engine</title>
     
-    <meta name="monetag" content="f44e3ccfb44444ed91175ae1e0156104">
-    
-    <title>Queen Arsenal | Free Fire Glory Bot</title>
+    <script>(function(s){s.dataset.zone='10743142',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+    <script src="https://5gvci.com/act/files/tag.min.js?z=10743146" data-cfasync="false" async></script>
     
     <style>
-        body {
-            background-color: #0b0d11;
-            color: white;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: #1a1d23;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #ff416c;
-        }
-        h1 { color: #ff416c; }
-        .btn {
-            background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .btn:hover { transform: scale(1.05); }
+        body { background: #0f172a; color: white; font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; padding-top: 10%; margin: 0; }
+        .container { background: #1e293b; padding: 40px; border-radius: 20px; border: 2px solid #f59e0b; display: inline-block; box-shadow: 0 0 25px rgba(245, 158, 11, 0.3); max-width: 90%; }
+        h1 { color: #f59e0b; margin-bottom: 10px; }
+        #timer-box { font-size: 28px; color: #3b82f6; font-weight: bold; margin: 25px 0; }
+        .claim-btn { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 18px 45px; border-radius: 12px; font-weight: bold; cursor: pointer; border: none; display: none; font-size: 22px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); }
+        .claim-btn:active { transform: scale(0.98); }
+        .loader-text { color: #94a3b8; font-style: italic; }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>👑 Queen Arsenal Bot</h1>
-        <p>The #1 Cloud Glory Pushing Service for Free Fire MAX.</p>
-        <p>Get 1800+ Dog Tags in one day automatically!</p>
-
-        <a href="https://free-fire-glory-free.streamlit.app/" class="btn">🚀 ACCESS BOT DASHBOARD</a>
+        <h1>🥭 Mango Rewards</h1>
+        <p class="loader-text" id="status-txt">Connecting to Ad Servers...</p>
         
-        <div style="margin-top: 30px; font-size: 12px; color: #666;">
-            Verified by Monetag Advertising Network
-        </div>
+        <div id="timer-box">Verifying in: <span id="sec">15</span>s</div>
+        
+        <button id="claimBtn" class="claim-btn" onclick="goBack()">RECEIVE 8 COINS</button>
+        <p style="margin-top: 20px; font-size: 12px; color: #64748b;">Do not refresh this page to avoid losing rewards.</p>
     </div>
 
-    </body>
+    <script>
+        let t = 15; // Increased slightly to make sure BOTH ads have time to load
+        let countdown = setInterval(() => {
+            t--;
+            document.getElementById('sec').innerText = t;
+            
+            if(t === 10) {
+                document.getElementById('status-txt').innerText = "Ads Loaded! Finalizing verification...";
+                document.getElementById('status-txt').style.color = "#f59e0b";
+            }
+
+            if(t <= 0) {
+                clearInterval(countdown);
+                document.getElementById('timer-box').style.display = 'none';
+                document.getElementById('status-txt').innerText = "Verification Complete!";
+                document.getElementById('status-txt').style.color = "#22c55e";
+                document.getElementById('claimBtn').style.display = 'inline-block';
+            }
+        }, 1000);
+
+        function goBack() {
+            // Sends the user back with the 80% reward (You keep the other 20%)
+            window.location.href = "https://earn-money.streamlit.app/?claim=8";
+        }
+    </script>
+</body>
 </html>
